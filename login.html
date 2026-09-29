@@ -1,0 +1,1138 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>VIBORA — Login</title>
+
+
+    <style>
+
+        /* =====================================
+           RESET
+        ===================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        /* =====================================
+           BODY
+        ===================================== */
+
+        body {
+
+            min-height: 100vh;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 25px;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            color: white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #0b0714,
+                    #170b2e,
+                    #241044,
+                    #0c1726
+                );
+
+            overflow-x: hidden;
+        }
+
+
+        /* =====================================
+           BACKGROUND GLOW
+        ===================================== */
+
+        body::before {
+
+            content: "";
+
+            position: fixed;
+
+            width: 500px;
+            height: 500px;
+
+            top: -220px;
+            left: -180px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(168,85,247,0.30),
+                    transparent 70%
+                );
+        }
+
+
+        body::after {
+
+            content: "";
+
+            position: fixed;
+
+            width: 500px;
+            height: 500px;
+
+            right: -200px;
+            bottom: -220px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(236,72,153,0.25),
+                    transparent 70%
+                );
+        }
+
+
+        /* =====================================
+           LOGIN CONTAINER
+        ===================================== */
+
+        .login-container {
+
+            position: relative;
+
+            z-index: 2;
+
+            width: 100%;
+
+            max-width: 1050px;
+
+            min-height: 620px;
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            overflow: hidden;
+
+            border-radius: 28px;
+
+            background:
+                rgba(255,255,255,0.06);
+
+            border:
+                1px solid
+                rgba(255,255,255,0.12);
+
+            backdrop-filter:
+                blur(25px);
+
+            box-shadow:
+                0 30px 80px
+                rgba(0,0,0,0.35);
+        }
+
+
+        /* =====================================
+           LEFT SIDE
+        ===================================== */
+
+        .left-side {
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            padding: 65px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(124,58,237,0.80),
+                    rgba(219,39,119,0.65)
+                );
+        }
+
+
+        .logo {
+
+            font-size: 42px;
+
+            font-weight: 900;
+
+            letter-spacing: 5px;
+
+            margin-bottom: 25px;
+        }
+
+
+        .left-side h1 {
+
+            font-size: 34px;
+
+            line-height: 1.2;
+
+            margin-bottom: 17px;
+        }
+
+
+        .left-side p {
+
+            max-width: 390px;
+
+            color:
+                rgba(255,255,255,0.78);
+
+            font-size: 14px;
+
+            line-height: 1.7;
+
+            margin-bottom: 30px;
+        }
+
+
+        /* =====================================
+           FEATURES
+        ===================================== */
+
+        .features {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 13px;
+        }
+
+
+        .feature {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            font-size: 13px;
+
+            font-weight: 600;
+        }
+
+
+        .feature-icon {
+
+            width: 38px;
+
+            height: 38px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 11px;
+
+            background:
+                rgba(255,255,255,0.13);
+
+            font-size: 18px;
+        }
+
+
+        /* =====================================
+           RIGHT SIDE
+        ===================================== */
+
+        .right-side {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 50px;
+        }
+
+
+        .login-box {
+
+            width: 100%;
+
+            max-width: 380px;
+        }
+
+
+        .back-button {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 6px;
+
+            margin-bottom: 30px;
+
+            color:
+                rgba(255,255,255,0.55);
+
+            background: transparent;
+
+            border: none;
+
+            cursor: pointer;
+
+            font-size: 12px;
+
+            transition: 0.2s;
+        }
+
+
+        .back-button:hover {
+
+            color: white;
+
+            transform:
+                translateX(-3px);
+        }
+
+
+        .login-box h2 {
+
+            font-size: 30px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .subtitle {
+
+            color:
+                rgba(255,255,255,0.52);
+
+            font-size: 13px;
+
+            margin-bottom: 28px;
+        }
+
+
+        /* =====================================
+           INPUT
+        ===================================== */
+
+        .input-group {
+
+            margin-bottom: 18px;
+        }
+
+
+        .input-group label {
+
+            display: block;
+
+            margin-bottom: 8px;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            color:
+                rgba(255,255,255,0.80);
+        }
+
+
+        .input-wrapper {
+
+            position: relative;
+        }
+
+
+        .input-wrapper span {
+
+            position: absolute;
+
+            left: 14px;
+
+            top: 50%;
+
+            transform:
+                translateY(-50%);
+
+            font-size: 16px;
+        }
+
+
+        .input-wrapper input {
+
+            width: 100%;
+
+            height: 50px;
+
+            padding:
+                0 45px;
+
+            border-radius: 12px;
+
+            border:
+                1px solid
+                rgba(255,255,255,0.13);
+
+            outline: none;
+
+            background:
+                rgba(255,255,255,0.07);
+
+            color: white;
+
+            font-size: 13px;
+
+            transition: 0.25s;
+        }
+
+
+        .input-wrapper input::placeholder {
+
+            color:
+                rgba(255,255,255,0.35);
+        }
+
+
+        .input-wrapper input:focus {
+
+            border-color:
+                #a855f7;
+
+            background:
+                rgba(255,255,255,0.10);
+
+            box-shadow:
+                0 0 0 3px
+                rgba(168,85,247,0.12);
+        }
+
+
+        /* =====================================
+           PASSWORD EYE
+        ===================================== */
+
+        .eye-button {
+
+            position: absolute;
+
+            right: 12px;
+
+            top: 50%;
+
+            transform:
+                translateY(-50%);
+
+            border: none;
+
+            background: transparent;
+
+            color: white;
+
+            cursor: pointer;
+
+            font-size: 16px;
+        }
+
+
+        /* =====================================
+           OPTIONS
+        ===================================== */
+
+        .options {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            margin-bottom: 22px;
+
+            font-size: 11px;
+        }
+
+
+        .remember {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 6px;
+
+            color:
+                rgba(255,255,255,0.60);
+        }
+
+
+        .forgot {
+
+            color: #c084fc;
+
+            font-weight: 700;
+
+            cursor: pointer;
+        }
+
+
+        /* =====================================
+           LOGIN BUTTON
+        ===================================== */
+
+        .login-button {
+
+            width: 100%;
+
+            height: 51px;
+
+            border: none;
+
+            border-radius: 12px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #7c3aed,
+                    #ec4899
+                );
+
+            color: white;
+
+            font-size: 14px;
+
+            font-weight: 800;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 10px 25px
+                rgba(124,58,237,0.25);
+
+            transition: 0.25s;
+        }
+
+
+        .login-button:hover {
+
+            transform:
+                translateY(-2px);
+
+            box-shadow:
+                0 15px 35px
+                rgba(124,58,237,0.35);
+        }
+
+
+        /* =====================================
+           DIVIDER
+        ===================================== */
+
+        .divider {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            margin: 23px 0;
+
+            color:
+                rgba(255,255,255,0.35);
+
+            font-size: 10px;
+        }
+
+
+        .divider span {
+
+            flex: 1;
+
+            height: 1px;
+
+            background:
+                rgba(255,255,255,0.12);
+        }
+
+
+        /* =====================================
+           GOOGLE BUTTON
+        ===================================== */
+
+        .google-button {
+
+            width: 100%;
+
+            height: 47px;
+
+            border-radius: 11px;
+
+            border:
+                1px solid
+                rgba(255,255,255,0.13);
+
+            background:
+                rgba(255,255,255,0.06);
+
+            color: white;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: 0.25s;
+        }
+
+
+        .google-button:hover {
+
+            background:
+                rgba(255,255,255,0.11);
+
+            transform:
+                translateY(-2px);
+        }
+
+
+        /* =====================================
+           CREATE ACCOUNT
+        ===================================== */
+
+        .create-account {
+
+            text-align: center;
+
+            margin-top: 24px;
+
+            color:
+                rgba(255,255,255,0.45);
+
+            font-size: 11px;
+        }
+
+
+        .create-account button {
+
+            border: none;
+
+            background: transparent;
+
+            color: #c084fc;
+
+            font-weight: 800;
+
+            cursor: pointer;
+
+            margin-left: 4px;
+        }
+
+
+        /* =====================================
+           RESPONSIVE
+        ===================================== */
+
+        @media (max-width: 800px) {
+
+            .login-container {
+
+                grid-template-columns: 1fr;
+
+                max-width: 480px;
+            }
+
+
+            .left-side {
+
+                display: none;
+            }
+
+
+            .right-side {
+
+                padding: 40px 25px;
+            }
+        }
+
+
+        @media (max-width: 450px) {
+
+            body {
+
+                padding: 12px;
+            }
+
+
+            .login-container {
+
+                border-radius: 20px;
+            }
+
+
+            .right-side {
+
+                padding: 30px 20px;
+            }
+
+
+            .login-box h2 {
+
+                font-size: 26px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <div class="login-container">
+
+
+        <!-- =================================
+             LEFT SIDE
+        ================================== -->
+
+        <section class="left-side">
+
+            <div class="logo">
+                VIBORA
+            </div>
+
+
+            <h1>
+                Welcome Back 👋
+            </h1>
+
+
+            <p>
+
+                Your people, your stories,
+                your ideas — everything you love
+                is waiting for you.
+
+            </p>
+
+
+            <div class="features">
+
+                <div class="feature">
+
+                    <div class="feature-icon">
+                        📸
+                    </div>
+
+                    Share your moments
+
+                </div>
+
+
+                <div class="feature">
+
+                    <div class="feature-icon">
+                        ✍️
+                    </div>
+
+                    Write your stories
+
+                </div>
+
+
+                <div class="feature">
+
+                    <div class="feature-icon">
+                        👥
+                    </div>
+
+                    Connect with people
+
+                </div>
+
+
+                <div class="feature">
+
+                    <div class="feature-icon">
+                        🌎
+                    </div>
+
+                    Discover something new
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================
+             RIGHT SIDE
+        ================================== -->
+
+        <section class="right-side">
+
+            <div class="login-box">
+
+
+                <!-- BACK -->
+
+                <button
+                    class="back-button"
+                    onclick="goBack()"
+                >
+
+                    ← Back
+
+                </button>
+
+
+                <h2>
+                    Login to VIBORA
+                </h2>
+
+
+                <p class="subtitle">
+
+                    Continue your journey with us.
+
+                </p>
+
+
+                <!-- EMAIL -->
+
+                <div class="input-group">
+
+                    <label>
+                        Email or Username
+                    </label>
+
+
+                    <div class="input-wrapper">
+
+                        <span>
+                            👤
+                        </span>
+
+
+                        <input
+                            type="text"
+                            id="username"
+                            placeholder="Enter email or username"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- PASSWORD -->
+
+                <div class="input-group">
+
+                    <label>
+                        Password
+                    </label>
+
+
+                    <div class="input-wrapper">
+
+                        <span>
+                            🔒
+                        </span>
+
+
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Enter your password"
+                        >
+
+
+                        <button
+                            class="eye-button"
+                            onclick="togglePassword()"
+                        >
+                            👁️
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- OPTIONS -->
+
+                <div class="options">
+
+                    <label class="remember">
+
+                        <input
+                            type="checkbox"
+                        >
+
+                        Remember me
+
+                    </label>
+
+
+                    <span
+                        class="forgot"
+                        onclick="forgotPassword()"
+                    >
+                        Forgot password?
+                    </span>
+
+                </div>
+
+
+                <!-- LOGIN -->
+
+                <button
+                    class="login-button"
+                    onclick="loginUser()"
+                >
+
+                    🔐 Login to VIBORA
+
+                </button>
+
+
+                <!-- DIVIDER -->
+
+                <div class="divider">
+
+                    <span></span>
+
+                    OR
+
+                    <span></span>
+
+                </div>
+
+
+                <!-- GOOGLE -->
+
+                <button
+                    class="google-button"
+                    onclick="googleLogin()"
+                >
+
+                    🌐 Continue with Google
+
+                </button>
+
+
+                <!-- SIGNUP -->
+
+                <div class="create-account">
+
+                    Don't have an account?
+
+                    <button
+                        onclick="createAccount()"
+                    >
+                        Create Account
+                    </button>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+
+    <!-- =====================================
+         JAVASCRIPT
+    ====================================== -->
+
+    <script>
+
+
+        /* =================================
+           BACK
+        ================================= */
+
+        function goBack() {
+
+            window.location.href =
+                "index.html";
+
+        }
+
+
+        /* =================================
+           PASSWORD
+        ================================= */
+
+        function togglePassword() {
+
+            const password =
+                document.getElementById("password");
+
+            const button =
+                document.querySelector(
+                    ".eye-button"
+                );
+
+
+            if (
+                password.type === "password"
+            ) {
+
+                password.type = "text";
+
+                button.textContent = "🙈";
+
+            } else {
+
+                password.type = "password";
+
+                button.textContent = "👁️";
+
+            }
+
+        }
+
+
+        /* =================================
+           LOGIN
+        ================================= */
+
+        function loginUser() {
+
+            const username =
+                document
+                    .getElementById("username")
+                    .value
+                    .trim();
+
+
+            const password =
+                document
+                    .getElementById("password")
+                    .value
+                    .trim();
+
+
+            if (
+                username === "" ||
+                password === ""
+            ) {
+
+                alert(
+                    "Please enter your login details."
+                );
+
+                return;
+            }
+
+
+            /*
+                Temporary demo login.
+
+                Real authentication will be
+                connected later.
+            */
+
+            localStorage.setItem(
+                "viboraUser",
+                username
+            );
+
+
+            alert(
+                "Welcome back to VIBORA! 🎉"
+            );
+
+
+            /*
+                Later this will open
+                the real VIBORA Home page.
+            */
+
+            window.location.href =
+                "home.html";
+
+        }
+
+
+        /* =================================
+           GOOGLE
+        ================================= */
+
+        function googleLogin() {
+
+            alert(
+                "Google Login will be connected later 🌐"
+            );
+
+        }
+
+
+        /* =================================
+           FORGOT PASSWORD
+        ================================= */
+
+        function forgotPassword() {
+
+            alert(
+                "Password recovery will be added later 🔐"
+            );
+
+        }
+
+
+        /* =================================
+           CREATE ACCOUNT
+        ================================= */
+
+        function createAccount() {
+
+            window.location.href =
+                "signup.html";
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
+```

@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>VIBORA — Home</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #0b0714;
+            color: white;
+            min-height: 100vh;
+        }
+
+        /* ================= HEADER ================= */
+
+        header {
+            height: 70px;
+            background: rgba(18, 12, 32, 0.95);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 5%;
+
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 900;
+
+            background: linear-gradient(
+                90deg,
+                #a855f7,
+                #ec4899,
+                #06b6d4
+            );
+
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        /* ================= SEARCH ================= */
+
+        .search-box {
+            width: 320px;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 12px 18px;
+
+            border: none;
+            outline: none;
+
+            border-radius: 25px;
+
+            background: #211735;
+            color: white;
+
+            font-size: 14px;
+        }
+
+        .search-box input::placeholder {
+            color: #aaa;
+        }
+
+        /* ================= HEADER BUTTONS ================= */
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .icon-btn {
+            width: 42px;
+            height: 42px;
+
+            border: none;
+            border-radius: 50%;
+
+            background: #211735;
+            color: white;
+
+            cursor: pointer;
+            font-size: 18px;
+
+            transition: 0.3s;
+        }
+
+        .icon-btn:hover {
+            background: #8b5cf6;
+            transform: translateY(-2px);
+        }
+
+        /* ================= LAYOUT ================= */
+
+        .page {
+            width: 1200px;
+            max-width: 94%;
+
+            margin: 30px auto;
+
+            display: grid;
+            grid-template-columns: 220px 1fr 260px;
+
+            gap: 25px;
+        }
+
+        /* ================= LEFT SIDEBAR ================= */
+
+        .sidebar {
+            background: #151023;
+            border: 1px solid rgba(255,255,255,0.07);
+
+            border-radius: 20px;
+
+            padding: 20px;
+
+            height: fit-content;
+
+            position: sticky;
+            top: 95px;
+        }
+
+        .menu-item {
+            display: flex;
+            align-items: center;
+
+            gap: 13px;
+
+            padding: 13px 12px;
+
+            border-radius: 12px;
+
+            margin-bottom: 7px;
+
+            cursor: pointer;
+
+            color: #d8d3df;
+
+            transition: 0.3s;
+        }
+
+        .menu-item:hover,
+        .menu-item.active {
+            background: linear-gradient(
+                90deg,
+                rgba(168,85,247,0.25),
+                rgba(236,72,153,0.15)
+            );
+
+            color: white;
+        }
+
+        .menu-icon {
+            font-size: 19px;
+        }
+
+        /* ================= MAIN ================= */
+
+        .main {
+            min-width: 0;
+        }
+
+        /* ================= CREATE POST ================= */
+
+        .create-post {
+            background: #151023;
+
+            border: 1px solid rgba(255,255,255,0.07);
+
+            border-radius: 20px;
+
+            padding: 20px;
+
+            margin-bottom: 20px;
+        }
+
+        .create-top {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .avatar {
+            width: 45px;
+            height: 45px;
+
+            border-radius: 50%;
+
+            background: linear-gradient(
+                135deg,
+                #a855f7,
+                #ec4899,
+                #06b6d4
+            );
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-weight: bold;
+        }
+
+        .post-input {
+            flex: 1;
+
+            background: #211735;
+
+            border: none;
+            outline: none;
+
+            border-radius: 25px;
+
+            padding: 13px 18px;
+
+            color: white;
+
+            cursor: pointer;
+        }
+
+        .post-input::placeholder {
+            color: #aaa;
+        }
+
+        .create-actions {
+            display: flex;
+
+            gap: 10px;
+
+            margin-top: 15px;
+
+            border-top: 1px solid rgba(255,255,255,0.06);
+
+            padding-top: 15px;
+        }
+
+        .create-action {
+            flex: 1;
+
+            border: none;
+
+            background: transparent;
+
+            color: #cfc8da;
+
+            padding: 10px;
+
+            border-radius: 10px;
+
+            cursor: pointer;
+        }
+
+        .create-action:hover {
+            background: #211735;
+            color: white;
+        }
+
+        /* ================= POST ================= */
+
+        .post {
+            background: #151023;
+
+            border: 1px solid rgba(255,255,255,0.07);
+
+            border-radius: 20px;
+
+            margin-bottom: 20px;
+
+            overflow: hidden;
+        }
+
+        .post-header {
+            padding: 18px;
+
+            display: flex;
+            align-items: center;
+
+            gap: 12px;
+        }
+
+        .post-user {
+            flex: 1;
+        }
+
+        .post-user h4 {
+            font-size: 15px;
+        }
+
+        .post-user span {
+            font-size: 12px;
+            color: #8f899b;
+        }
+
+        .more {
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .post-content {
+            padding: 0 18px 18px;
+
+            color: #ddd6e7;
+
+            line-height: 1.6;
+        }
+
+        .post-image {
+            width: 100%;
+
+            height: 360px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #4c1d95,
+                    #be185d,
+                    #0891b2
+                );
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            font-size: 70px;
+        }
+
+        .post-actions {
+            display: flex;
+
+            padding: 14px 18px;
+
+            gap: 8px;
+
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .post-btn {
+            border: none;
+
+            background: transparent;
+
+            color: #aaa2b4;
+
+            padding: 8px 12px;
+
+            border-radius: 10px;
+
+            cursor: pointer;
+
+            font-size: 14px;
+        }
+
+        .post-btn:hover {
+            background: #211735;
+            color: white;
+        }
+
+        .like-btn.liked {
+            color: #ff4f91;
+        }
+
+        /* ================= RIGHT SIDEBAR ================= */
+
+        .right-sidebar {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 20px;
+        }
+
+        .card {
+            background: #151023;
+
+            border: 1px solid rgba(255,255,255,0.07);
+
+            border-radius: 20px;
+
+            padding: 20px;
+        }
+
+        .card h3 {
+            margin-bottom: 16px;
+            font-size: 17px;
+        }
+
+        .profile-mini {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            margin-bottom: 15px;
+        }
+
+        .profile-mini .avatar {
+            width: 40px;
+            height: 40px;
+        }
+
+        .profile-info {
+            flex: 1;
+        }
+
+        .profile-info strong {
+            display: block;
+            font-size: 14px;
+        }
+
+        .profile-info span {
+            font-size: 12px;
+            color: #8f899b;
+        }
+
+        .follow-btn {
+            border: none;
+
+            background: linear-gradient(
+                90deg,
+                #8b5cf6,
+                #ec4899
+            );
+
+            color: white;
+
+            padding: 7px 12px;
+
+            border-radius: 20px;
+
+            cursor: pointer;
+        }
+
+        /* ================= WELCOME ================= */
+
+        .welcome-box {
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(139,92,246,0.2),
+                    rgba(236,72,153,0.12),
+                    rgba(6,182,212,0.12)
+                );
+
+            border-radius: 20px;
+
+            padding: 20px;
+
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .welcome-box h2 {
+            margin-bottom: 8px;
+        }
+
+        .welcome-box p {
+            color: #aaa2b4;
+
+            font-size: 13px;
+
+            line-height: 1.5;
+        }
+
+        /* ================= MOBILE ================= */
+
+        @media(max-width: 1000px) {
+
+            .page {
+                grid-template-columns: 80px 1fr;
+            }
+
+            .right-sidebar {
+                display: none;
+            }
+
+            .menu-item span:not(.menu-icon) {
+                display: none;
+            }
+
+            .sidebar {
+                padding: 12px;
+            }
+
+            .menu-item {
+                justify-content: center;
+            }
+        }
+
+        @media(max-width: 700px) {
+
+            header {
+                padding: 0 15px;
+            }
+
+            .search-box {
+                display: none;
+            }
+
+            .page {
+                display: block;
+
+                max-width: 96%;
+
+                margin-top: 15px;
+            }
+
+            .sidebar {
+                position: fixed;
+
+                bottom: 0;
+                left: 0;
+                right: 0;
+
+                top: auto;
+
+                height: 65px;
+
+                z-index: 200;
+
+                border-radius: 18px 18px 0 0;
+
+                display: flex;
+
+                justify-content: space-around;
+
+                padding: 8px;
+            }
+
+            .menu-item {
+                margin: 0;
+
+                padding: 10px;
+
+                flex-direction: column;
+
+                gap: 2px;
+
+                font-size: 10px;
+            }
+
+            .menu-item span:not(.menu-icon) {
+                display: block;
+            }
+
+            .main {
+                padding-bottom: 80px;
+            }
+
+            .post-image {
+                height: 280px;
+            }
+
+            .header-actions .icon-btn:nth-child(2) {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+    <div class="logo">
+        VIBORA
+    </div>
+
+    <div class="search-box">
+        <input
+            type="text"
+            placeholder="🔍 Search VIBORA..."
+            id="searchInput"
+        >
+    </div>
+
+    <div class="header-actions">
+
+        <button class="icon-btn" onclick="showNotification()">
+            🔔
+        </button>
+
+        <button class="icon-btn" onclick="toggleTheme()">
+            🌙
+        </button>
+
+        <button class="icon-btn" onclick="openProfile()">
+            👤
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- ================= PAGE ================= -->
+
+<div class="page">
+
+
+    <!-- ================= LEFT SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <div class="menu-item active" onclick="goHome()">
+            <span class="menu-icon">🏠</span>
+            <span>Home</span>
+        </div>
+
+        <div class="menu-item" onclick="showExplore()">
+            <span class="menu-icon">🔍</span>
+            <span>Explore</span>
+        </div>
+
+        <div class="menu-item" onclick="createPost()">
+            <span class="menu-icon">➕</span>
+            <span>Create</span>
+        </div>
+
+        <div class="menu-item" onclick="showFriends()">
+            <span class="menu-icon">👥</span>
+            <span>Friends</span>
+        </div>
+
+        <div class="menu-item" onclick="showMessages()">
+            <span class="menu-icon">💬</span>
+            <span>Messages</span>
+        </div>
+
+        <div class="menu-item" onclick="showSaved()">
+            <span class="menu-icon">🔖</span>
+            <span>Saved</span>
+        </div>
+
+        <div class="menu-item" onclick="openProfile()">
+            <span class="menu-icon">👤</span>
+            <span>Profile</span>
+        </div>
+
+    </aside>
+
+
+    <!-- ================= MAIN FEED ================= -->
+
+    <main class="main">
+
+
+        <!-- WELCOME -->
+
+        <div class="welcome-box">
+
+            <h2>
+                Welcome to VIBORA 👋
+            </h2>
+
+            <p>
+                Share your vibe, tell your story,
+                and discover something new today.
+            </p>
+
+        </div>
+
+        <br>
+
+
+        <!-- CREATE POST -->
+
+        <div class="create-post">
+
+            <div class="create-top">
+
+                <div class="avatar">
+                    VT
+                </div>
+
+                <input
+                    class="post-input"
+                    type="text"
+                    placeholder="What's on your mind?"
+                    onclick="createPost()"
+                    readonly
+                >
+
+            </div>
+
+            <div class="create-actions">
+
+                <button
+                    class="create-action"
+                    onclick="createPhoto()">
+                    📷 Photo
+                </button>
+
+                <button
+                    class="create-action"
+                    onclick="createBlog()">
+                    ✍️ Blog
+                </button>
+
+                <button
+                    class="create-action"
+                    onclick="createPost()">
+                    📝 Post
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= POST 1 ================= -->
+
+        <div class="post">
+
+            <div class="post-header">
+
+                <div class="avatar">
+                    AK
+                </div>
+
+                <div class="post-user">
+
+                    <h4>
+                        Arjun Kumar
+                    </h4>
+
+                    <span>
+                        @arjunk • 2h
+                    </span>
+
+                </div>
+
+                <div class="more">
+                    ⋯
+                </div>
+
+            </div>
+
+            <div class="post-content">
+
+                Exploring new places and creating
+                new memories 🌄✨
+
+            </div>
+
+            <div class="post-image">
+                🌄
+            </div>
+
+            <div class="post-actions">
+
+                <button
+                    class="post-btn like-btn"
+                    onclick="likePost(this)">
+                    ❤️ Like
+                </button>
+
+                <button
+                    class="post-btn"
+                    onclick="commentPost()">
+                    💬 Comment
+                </button>
+
+                <button
+                    class="post-btn"
+                    onclick="sharePost()">
+                    📤 Share
+                </button>
+
+                <button
+                    class="post-btn"
+                    onclick="savePost(this)">
+                    🔖 Save
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= POST 2 ================= -->
+
+        <div class="post">
+
+            <div class="post-header">
+
+                <div class="avatar">
+                    RS
+                </div>
+
+                <div class="post-user">
+
+                    <h4>
+                        Riya Sharma
+                    </h4>
+
+                    <span>
+                        @riya • 5h
+                    </span>
+
+                </div>
+
+                <div class="more">
+                    ⋯
+                </div>
+
+            </div>
+
+            <div class="post-content">
+
+                Sometimes the smallest moments
+                create the biggest memories. 💜
+
+            </div>
+
+            <div class="post-actions">
+
+                <button
+                    class="post-btn like-btn"
+                    onclick="likePost(this)">
+                    ❤️ Like
+                </button>
+
+                <button
+                    class="post-btn"
+                    onclick="commentPost()">
+                    💬 Comment
+                </button>
+
+                <button
+                    class="post-btn"
+                    onclick="sharePost()">
+                    📤 Share
+                </button>
+
+                <button
+                    class="post-btn"
+                    onclick="savePost(this)">
+                    🔖 Save
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- ================= RIGHT SIDEBAR ================= -->
+
+    <aside class="right-sidebar">
+
+
+        <!-- PROFILE -->
+
+        <div class="card">
+
+            <h3>
+                Your Profile
+            </h3>
+
+            <div class="profile-mini">
+
+                <div class="avatar">
+                    VT
+                </div>
+
+                <div class="profile-info">
+
+                    <strong id="userName">
+                        VIBORA User
+                    </strong>
+
+                    <span>
+                        @vibora_user
+                    </span>
+
+                </div>
+
+            </div>
+
+            <button
+                class="follow-btn"
+                onclick="openProfile()"
+                style="width:100%;">
+                View Profile
+            </button>
+
+        </div>
+
+
+        <!-- SUGGESTIONS -->
+
+        <div class="card">
+
+            <h3>
+                People You May Know
+            </h3>
+
+            <div class="profile-mini">
+
+                <div class="avatar">
+                    VK
+                </div>
+
+                <div class="profile-info">
+
+                    <strong>
+                        Vikram
+                    </strong>
+
+                    <span>
+                        @vikram
+                    </span>
+
+                </div>
+
+                <button
+                    class="follow-btn"
+                    onclick="followUser(this)">
+                    Follow
+                </button>
+
+            </div>
+
+
+            <div class="profile-mini">
+
+                <div class="avatar">
+                    SP
+                </div>
+
+                <div class="profile-info">
+
+                    <strong>
+                        Sneha
+                    </strong>
+
+                    <span>
+                        @sneha
+                    </span>
+
+                </div>
+
+                <button
+                    class="follow-btn"
+                    onclick="followUser(this)">
+                    Follow
+                </button>
+
+            </div>
+
+
+            <div class="profile-mini">
+
+                <div class="avatar">
+                    RJ
+                </div>
+
+                <div class="profile-info">
+
+                    <strong>
+                        Rahul
+                    </strong>
+
+                    <span>
+                        @rahul
+                    </span>
+
+                </div>
+
+                <button
+                    class="follow-btn"
+                    onclick="followUser(this)">
+                    Follow
+                </button>
+
+            </div>
+
+        </div>
+
+
+    </aside>
+
+</div>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+    // Load username from signup/login
+
+    const savedName = localStorage.getItem("viboraName");
+    const savedUser = localStorage.getItem("viboraUser");
+
+    if (savedName) {
+        document.getElementById("userName").innerText = savedName;
+    }
+    else if (savedUser) {
+        document.getElementById("userName").innerText = savedUser;
+    }
+
+
+    // Like
+
+    function likePost(button) {
+
+        button.classList.toggle("liked");
+
+        if (button.classList.contains("liked")) {
+            button.innerHTML = "💖 Liked";
+        }
+        else {
+            button.innerHTML = "❤️ Like";
+        }
+
+    }
+
+
+    // Comment
+
+    function commentPost() {
+
+        const comment = prompt(
+            "Write your comment:"
+        );
+
+        if (comment && comment.trim() !== "") {
+
+            alert(
+                "Comment added successfully! 💬"
+            );
+
+        }
+
+    }
+
+
+    // Share
+
+    function sharePost() {
+
+        alert(
+            "Post shared successfully! 📤"
+        );
+
+    }
+
+
+    // Save
+
+    function savePost(button) {
+
+        if (button.innerHTML.includes("Saved")) {
+
+            button.innerHTML = "🔖 Save";
+
+        }
+        else {
+
+            button.innerHTML = "✅ Saved";
+
+        }
+
+    }
+
+
+    // Create
+
+    function createPost() {
+
+        alert(
+            "Post creator will open here. 🚀"
+        );
+
+    }
+
+
+    function createPhoto() {
+
+        alert(
+            "Photo upload feature will be added next. 📷"
+        );
+
+    }
+
+
+    function createBlog() {
+
+        alert(
+            "Blog editor will be added next. ✍️"
+        );
+
+    }
+
+
+    // Navigation
+
+    function goHome() {
+
+        window.location.href = "home.html";
+
+    }
+
+
+    function openProfile() {
+
+        alert(
+            "Profile page will be created next. 👤"
+        );
+
+    }
+
+
+    function showExplore() {
+
+        alert(
+            "Explore page coming next! 🔍"
+        );
+
+    }
+
+
+    function showFriends() {
+
+        alert(
+            "Friends section coming next! 👥"
+        );
+
+    }
+
+
+    function showMessages() {
+
+        alert(
+            "Messages section coming next! 💬"
+        );
+
+    }
+
+
+    function showSaved() {
+
+        alert(
+            "Saved posts section coming next! 🔖"
+        );
+
+    }
+
+
+    function showNotification() {
+
+        alert(
+            "You have new notifications! 🔔"
+        );
+
+    }
+
+
+    function followUser(button) {
+
+        if (button.innerText === "Follow") {
+
+            button.innerText = "Following";
+
+        }
+        else {
+
+            button.innerText = "Follow";
+
+        }
+
+    }
+
+
+    // Theme
+
+    function toggleTheme() {
+
+        document.body.classList.toggle("light-mode");
+
+        if (
+            document.body.classList.contains(
+                "light-mode"
+            )
+        ) {
+
+            document.body.style.background =
+                "#f5f3fa";
+
+            document.body.style.color =
+                "#222";
+
+            alert(
+                "Light mode enabled ☀️"
+            );
+
+        }
+        else {
+
+            document.body.style.background =
+                "#0b0714";
+
+            document.body.style.color =
+                "white";
+
+            alert(
+                "Dark mode enabled 🌙"
+            );
+
+        }
+
+    }
+
+
+    // Search
+
+    document
+        .getElementById("searchInput")
+        .addEventListener(
+            "keypress",
+            function(event) {
+
+                if (event.key === "Enter") {
+
+                    const value =
+                        this.value.trim();
+
+                    if (value !== "") {
+
+                        alert(
+                            "Searching for: " +
+                            value +
+                            " 🔍"
+                        );
+
+                    }
+
+                }
+
+            }
+        );
+
+</script>
+
+</body>
+</html>

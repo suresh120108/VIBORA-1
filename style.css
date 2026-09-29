@@ -1,0 +1,743 @@
+```css
+/* =====================================================
+   VIBORA
+   Welcome / Entry Page
+===================================================== */
+
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =====================================================
+   BODY
+===================================================== */
+
+body {
+
+    min-height: 100vh;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0b0714 0%,
+            #170b2e 35%,
+            #241044 65%,
+            #0c1726 100%
+        );
+
+    color: #ffffff;
+
+    overflow-x: hidden;
+}
+
+
+/* =====================================================
+   BACKGROUND EFFECTS
+===================================================== */
+
+body::before {
+
+    content: "";
+
+    position: fixed;
+
+    width: 500px;
+    height: 500px;
+
+    top: -180px;
+    left: -150px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(168, 85, 247, 0.28),
+            transparent 70%
+        );
+
+    pointer-events: none;
+}
+
+
+body::after {
+
+    content: "";
+
+    position: fixed;
+
+    width: 550px;
+    height: 550px;
+
+    right: -200px;
+    bottom: -200px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(236, 72, 153, 0.25),
+            transparent 70%
+        );
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   WELCOME PAGE
+===================================================== */
+
+.welcome-page {
+
+    position: relative;
+
+    z-index: 2;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 40px 20px;
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.logo {
+
+    font-size: 58px;
+
+    font-weight: 900;
+
+    letter-spacing: 7px;
+
+    margin-bottom: 25px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #a855f7,
+            #ec4899,
+            #22d3ee
+        );
+
+    -webkit-background-clip: text;
+
+    background-clip: text;
+
+    color: transparent;
+
+    animation:
+        logoGlow 3s ease-in-out infinite;
+}
+
+
+@keyframes logoGlow {
+
+    0%,
+    100% {
+
+        filter:
+            drop-shadow(
+                0 0 10px
+                rgba(168,85,247,0.2)
+            );
+
+    }
+
+    50% {
+
+        filter:
+            drop-shadow(
+                0 0 25px
+                rgba(236,72,153,0.35)
+            );
+
+    }
+
+}
+
+
+/* =====================================================
+   MAIN HEADING
+===================================================== */
+
+h1 {
+
+    font-size: 48px;
+
+    line-height: 1.15;
+
+    font-weight: 800;
+
+    letter-spacing: -1px;
+
+    margin-bottom: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #e9d5ff
+        );
+
+    -webkit-background-clip: text;
+
+    background-clip: text;
+
+    color: transparent;
+}
+
+
+/* =====================================================
+   DESCRIPTION
+===================================================== */
+
+.description {
+
+    max-width: 580px;
+
+    color:
+        rgba(255,255,255,0.70);
+
+    font-size: 16px;
+
+    line-height: 1.7;
+
+    margin-bottom: 20px;
+}
+
+
+/* =====================================================
+   FEATURES
+===================================================== */
+
+.features {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    color:
+        rgba(255,255,255,0.85);
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    margin-bottom: 35px;
+}
+
+
+/* =====================================================
+   BUTTON CONTAINER
+===================================================== */
+
+.buttons {
+
+    width: 100%;
+
+    max-width: 380px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 13px;
+}
+
+
+/* =====================================================
+   COMMON BUTTON
+===================================================== */
+
+.buttons button {
+
+    width: 100%;
+
+    height: 54px;
+
+    border-radius: 14px;
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+
+/* =====================================================
+   LOGIN BUTTON
+===================================================== */
+
+.login-btn {
+
+    border: none;
+
+    color: #ffffff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7c3aed,
+            #a855f7
+        );
+
+    box-shadow:
+        0 10px 30px
+        rgba(124,58,237,0.25);
+}
+
+
+.login-btn:hover {
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 15px 35px
+        rgba(124,58,237,0.40);
+}
+
+
+/* =====================================================
+   SIGNUP BUTTON
+===================================================== */
+
+.signup-btn {
+
+    border:
+        1px solid
+        rgba(255,255,255,0.18);
+
+    color: #ffffff;
+
+    background:
+        rgba(255,255,255,0.07);
+
+    backdrop-filter: blur(12px);
+}
+
+
+.signup-btn:hover {
+
+    transform:
+        translateY(-3px);
+
+    background:
+        rgba(255,255,255,0.13);
+
+    border-color:
+        rgba(255,255,255,0.30);
+
+    box-shadow:
+        0 12px 30px
+        rgba(0,0,0,0.15);
+}
+
+
+/* =====================================================
+   DIVIDER
+===================================================== */
+
+.divider {
+
+    width: 100%;
+
+    max-width: 380px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin: 25px 0 17px;
+}
+
+
+.divider span {
+
+    flex: 1;
+
+    height: 1px;
+
+    background:
+        rgba(255,255,255,0.15);
+}
+
+
+.divider p {
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    color:
+        rgba(255,255,255,0.45);
+
+    letter-spacing: 1px;
+}
+
+
+/* =====================================================
+   GOOGLE BUTTON
+===================================================== */
+
+.google-btn {
+
+    width: 100%;
+
+    max-width: 380px;
+
+    height: 50px;
+
+    border-radius: 13px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.16);
+
+    background:
+        rgba(255,255,255,0.06);
+
+    color: #ffffff;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(12px);
+
+    transition: 0.25s;
+}
+
+
+.google-btn:hover {
+
+    background:
+        rgba(255,255,255,0.12);
+
+    transform:
+        translateY(-2px);
+
+    border-color:
+        rgba(255,255,255,0.28);
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer {
+
+    max-width: 420px;
+
+    margin-top: 25px;
+
+    color:
+        rgba(255,255,255,0.40);
+
+    font-size: 10px;
+
+    line-height: 1.6;
+}
+
+
+.footer span {
+
+    color:
+        #c084fc;
+
+    font-weight: 700;
+}
+
+
+/* =====================================================
+   FLOATING DECORATION
+===================================================== */
+
+.welcome-page::before {
+
+    content: "✦";
+
+    position: absolute;
+
+    top: 16%;
+
+    left: 12%;
+
+    color:
+        rgba(255,255,255,0.35);
+
+    font-size: 22px;
+
+    animation:
+        floatOne 4s ease-in-out infinite;
+}
+
+
+.welcome-page::after {
+
+    content: "✧";
+
+    position: absolute;
+
+    right: 13%;
+
+    top: 25%;
+
+    color:
+        rgba(255,255,255,0.30);
+
+    font-size: 25px;
+
+    animation:
+        floatTwo 5s ease-in-out infinite;
+}
+
+
+@keyframes floatOne {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            rotate(0deg);
+    }
+
+    50% {
+        transform:
+            translateY(-15px)
+            rotate(15deg);
+    }
+}
+
+
+@keyframes floatTwo {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            rotate(0deg);
+    }
+
+    50% {
+        transform:
+            translateY(18px)
+            rotate(-15deg);
+    }
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .logo {
+
+        font-size: 48px;
+
+        letter-spacing: 5px;
+    }
+
+
+    h1 {
+
+        font-size: 38px;
+    }
+
+
+    .description {
+
+        font-size: 14px;
+
+        max-width: 480px;
+    }
+
+
+    .features {
+
+        font-size: 12px;
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 500px) {
+
+    .welcome-page {
+
+        padding:
+            30px 18px;
+    }
+
+
+    .logo {
+
+        font-size: 39px;
+
+        letter-spacing: 4px;
+
+        margin-bottom: 20px;
+    }
+
+
+    h1 {
+
+        font-size: 31px;
+
+        line-height: 1.2;
+    }
+
+
+    .description {
+
+        font-size: 13px;
+
+        line-height: 1.6;
+
+        max-width: 350px;
+    }
+
+
+    .features {
+
+        gap: 7px;
+
+        font-size: 10px;
+
+        margin-bottom: 28px;
+    }
+
+
+    .buttons {
+
+        max-width: 340px;
+    }
+
+
+    .buttons button {
+
+        height: 51px;
+
+        border-radius: 12px;
+    }
+
+
+    .google-btn {
+
+        max-width: 340px;
+
+        height: 48px;
+    }
+
+
+    .divider {
+
+        max-width: 340px;
+    }
+
+
+    .footer {
+
+        max-width: 320px;
+
+        font-size: 9px;
+    }
+
+
+    .welcome-page::before {
+
+        left: 5%;
+
+        top: 12%;
+    }
+
+
+    .welcome-page::after {
+
+        right: 5%;
+
+        top: 20%;
+    }
+
+}
+
+
+/* =====================================================
+   VERY SMALL MOBILE
+===================================================== */
+
+@media (max-width: 350px) {
+
+    .logo {
+
+        font-size: 33px;
+    }
+
+
+    h1 {
+
+        font-size: 27px;
+    }
+
+
+    .description {
+
+        font-size: 12px;
+    }
+
+
+    .features {
+
+        display: none;
+    }
+
+}
+```
